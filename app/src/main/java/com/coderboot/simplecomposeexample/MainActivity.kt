@@ -8,7 +8,12 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -25,6 +30,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
+import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationBar
+import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationItem
+import com.coderboot.simplecomposeexample.navigationWithBadges.Navigation
+import com.coderboot.simplecomposeexample.navigationWithBadges.Screen
 import com.coderboot.simplecomposeexample.ui.theme.MeditationUIYouTubeTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,11 +43,50 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-
             MeditationUIYouTubeTheme {
-                HomeScreen()
-            }
+                val navController = rememberNavController()
+                val items = listOf(
+                    BottomNavigationItem(
+                        name = "Home",
+                        route = Screen.HomeScreen.route,
+                        icon = Icons.Default.Home
+                    ),
+                    BottomNavigationItem(
+                        name = "Chat",
+                        route = Screen.ChatScreen.route,
+                        icon = Icons.Default.Notifications,
+                        badgeCount = 20
+                    ),
+                    BottomNavigationItem(
+                        name = "Setting",
+                        route = Screen.SettingScreen.route,
+                        icon = Icons.Default.Settings
+                    )
+                )
+                Scaffold(
+                    bottomBar = {
+                        BottomNavigationBar(
+                            items = items,
+                            navController = navController,
+                            onItemSelect = {
+                                navController.navigate(it.route)
 
+                            }
+                        )
+                    }
+                ) {
+                    Navigation(navController = navController)
+                }
+            }
+//            MeditationUIYouTubeTheme {
+//                NavigationSplash()
+//            }
+//            MeditationUIYouTubeTheme {
+//               Navigation()
+//            }
+//            MeditationUIYouTubeTheme {
+//                ProfileScreen()
+//            }
 
 //            var stateSize by remember {
 //                mutableStateOf(200.dp)
@@ -128,3 +177,4 @@ fun CircularProgress(
         )
     }
 }
+

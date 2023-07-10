@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
-    <style name="Theme.SimpleComposeExample" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/purple_700</item>
+
+<resources  xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.SimpleComposeExample" parent="android:ThemeOverlay.Material.Dark.ActionBar">
+        <item name="android:colorPrimary">@color/purple_500</item>
+        <item name="android:colorPrimaryDark">@color/purple_700</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
     </style>
+    <style name="Theme.SimpleComposeExample.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="Theme.SimpleComposeExample.AppBarOverlay" parent="android:ThemeOverlay.Material.Dark.ActionBar" />
+
+    <style name="Theme.SimpleComposeExample.PopupOverlay" parent="android:ThemeOverlay.Material.Light" />
 </resources>

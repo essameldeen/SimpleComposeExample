@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.coderboot.simplecomposeexample.handleMultiPermission.HandleMultiPermission
 import com.coderboot.simplecomposeexample.multiSelectList.MultiSelectItem
 import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationBar
 import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationItem
@@ -44,8 +45,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MeditationUIYouTubeTheme {
-                MultiSelectItem()
+                HandleMultiPermission()
             }
+//            MeditationUIYouTubeTheme {
+//                MultiSelectItem()
+//            }
 
 
 //            MeditationUIYouTubeTheme {

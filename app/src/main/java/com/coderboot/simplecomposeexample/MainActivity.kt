@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.coderboot.simplecomposeexample.multiSelectList.MultiSelectItem
 import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationBar
 import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationItem
 import com.coderboot.simplecomposeexample.navigationWithBadges.Navigation
@@ -42,42 +43,46 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             MeditationUIYouTubeTheme {
-                val navController = rememberNavController()
-                val items = listOf(
-                    BottomNavigationItem(
-                        name = "Home",
-                        route = Screen.HomeScreen.route,
-                        icon = Icons.Default.Home
-                    ),
-                    BottomNavigationItem(
-                        name = "Chat",
-                        route = Screen.ChatScreen.route,
-                        icon = Icons.Default.Notifications,
-                        badgeCount = 20
-                    ),
-                    BottomNavigationItem(
-                        name = "Setting",
-                        route = Screen.SettingScreen.route,
-                        icon = Icons.Default.Settings
-                    )
-                )
-                Scaffold(
-                    bottomBar = {
-                        BottomNavigationBar(
-                            items = items,
-                            navController = navController,
-                            onItemSelect = {
-                                navController.navigate(it.route)
-
-                            }
-                        )
-                    }
-                ) {
-                    Navigation(navController = navController)
-                }
+                MultiSelectItem()
             }
+
+
+//            MeditationUIYouTubeTheme {
+//                val navController = rememberNavController()
+//                val items = listOf(
+//                    BottomNavigationItem(
+//                        name = "Home",
+//                        route = Screen.HomeScreen.route,
+//                        icon = Icons.Default.Home
+//                    ),
+//                    BottomNavigationItem(
+//                        name = "Chat",
+//                        route = Screen.ChatScreen.route,
+//                        icon = Icons.Default.Notifications,
+//                        badgeCount = 20
+//                    ),
+//                    BottomNavigationItem(
+//                        name = "Setting",
+//                        route = Screen.SettingScreen.route,
+//                        icon = Icons.Default.Settings
+//                    )
+//                )
+//                Scaffold(
+//                    bottomBar = {
+//                        BottomNavigationBar(
+//                            items = items,
+//                            navController = navController,
+//                            onItemSelect = {
+//                                navController.navigate(it.route)
+//
+//                            }
+//                        )
+//                    }
+//                ) {
+//                    Navigation(navController = navController)
+//                }
+//            }
 //            MeditationUIYouTubeTheme {
 //                NavigationSplash()
 //            }

@@ -8,12 +8,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,14 +25,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
-import com.coderboot.simplecomposeexample.handleMultiPermission.HandleMultiPermission
-import com.coderboot.simplecomposeexample.multiSelectList.MultiSelectItem
-import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationBar
-import com.coderboot.simplecomposeexample.navigationWithBadges.BottomNavigationItem
-import com.coderboot.simplecomposeexample.navigationWithBadges.Navigation
-import com.coderboot.simplecomposeexample.navigationWithBadges.Screen
+import com.coderboot.simplecomposeexample.composeNavDestLibrary.NavGraphs
 import com.coderboot.simplecomposeexample.ui.theme.MeditationUIYouTubeTheme
+import com.ramcosta.composedestinations.DestinationsNavHost
 
 class MainActivity : ComponentActivity() {
 
@@ -45,8 +35,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MeditationUIYouTubeTheme {
-                HandleMultiPermission()
+                DestinationsNavHost(navGraph = NavGraphs.root)
             }
+//            MeditationUIYouTubeTheme {
+//                HandleMultiPermission()
+//            }
 //            MeditationUIYouTubeTheme {
 //                MultiSelectItem()
 //            }
